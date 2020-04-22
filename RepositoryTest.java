@@ -27,6 +27,6 @@ class RepositoryTest
     String Begruessen()
     {
         
-        return "Herzlich Willkommen!";
+        return "Herzlich Willkommen an alle!";
     }
 }
