@@ -22,6 +22,10 @@ public class TestBrichzin {
   public String getNachricht() {
     return nachricht;
   }
+  
+  public void setNachricht(String n) {
+    nachricht = n;
+  }
 
   // Ende Methoden
 } // end of TestBrichzin
