@@ -9,7 +9,7 @@ public class TesBrichzin2
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     private int x;
-
+    String nachricht;
     /**
      * Konstruktor für Objekte der Klasse TesBrichzin2
      */
@@ -17,6 +17,7 @@ public class TesBrichzin2
     {
         // Instanzvariable initialisieren
         x = 0;
+        nachricht = "Hallo";
     }
 
     /**
