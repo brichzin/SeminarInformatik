@@ -14,7 +14,7 @@ public class TestBrichzin {
   
   TestBrichzin() 
   {
-     nachricht= "Hallo";
+     nachricht= "Hallo! Wie geht es Euch?";
   }
 
   
