@@ -10,6 +10,7 @@ public class TestBrichzin {
   
   // Anfang Attribute
   private String nachricht;
+  private int zahl;
   // Ende Attribute
   
   TestBrichzin() 
@@ -23,9 +24,13 @@ public class TestBrichzin {
   public String getNachricht() {
     return nachricht;
   }
-  
+
   public void setNachricht(String n) {
     nachricht = n;
+  }
+
+  public int getZahl() {
+    return zahl;
   }
 
   // Ende Methoden
