@@ -17,6 +17,7 @@ public class TestBrichzin {
   {
 
 
+
      nachricht= "Servus Kunpel!";
   }
 
