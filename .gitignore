@@ -11,6 +11,11 @@
 # BlueJ files
 *.ctxt
 
+# JavaEditor files
+*.~ava
+*.uml
+
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
