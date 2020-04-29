@@ -163,7 +163,6 @@ public class VIEW extends JFrame {
         int tempMonat = (int) eingabeMonat.getValue();
         int tempJahr = (int) eingabeJahr.getValue();
         boolean schaltjahr = false;
-        System.out.println(tempJahr);
         if(tempJahr % 4 == 0) {
             if(tempJahr % 100 == 0 && tempJahr % 400 == 0) {
                 schaltjahr = true;
