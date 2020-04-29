@@ -161,10 +161,22 @@ public class VIEW extends JFrame {
         String ausgabe = "geprüft";
         int tempTag = (int) eingabeTag.getValue();
         int tempMonat = (int) eingabeMonat.getValue();
-        int tempJahr = (int) eingabeMonat.getValue();
-        if(tempMonat == 2 && tempTag > 29 && tempJahr == 2020) {
+        int tempJahr = (int) eingabeJahr.getValue();
+        boolean schaltjahr = false;
+        System.out.println(tempJahr);
+        if(tempJahr % 4 == 0) {
+            if(tempJahr % 100 == 0 && tempJahr % 400 == 0) {
+                schaltjahr = true;
+            } else {
+                if (tempJahr % 100 == 0 && tempJahr % 400 != 0) {
+                    schaltjahr = false;
+                }
+            }
+            schaltjahr = true;
+        } 
+        if(tempMonat == 2 && tempTag > 29 && schaltjahr) {
             ausgabe = "Februar hat weniger Tage!";
-        } else if(tempMonat == 2 && tempTag > 28) {
+        } else if(tempMonat == 2 && tempTag > 28 && !schaltjahr) {
             ausgabe = "Februar hat weniger Tage!";
         } else if((tempMonat == 4 || tempMonat == 6 || tempMonat == 9 || tempMonat == 11) && tempTag == 31) {
             ausgabe = "Den 31. gibt es nicht!";
