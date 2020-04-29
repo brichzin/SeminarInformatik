@@ -14,12 +14,15 @@ import javax.swing.event.*;
 public class VIEW extends JFrame {
     
     private Model model;
+    private boolean datengeprueft;
     // Anfang Attribute
     private JLabel lDatum = new JLabel();
     private JLabel lNeuinfizierte = new JLabel();
     private JLabel lTodesfaelle = new JLabel();
     private JLabel lEingabemaske = new JLabel();
+    private JLabel lPruefen = new JLabel();
     private JButton buttonAbsenden = new JButton();
+    private JButton buttonPruefen = new JButton();
     private JSpinner eingabeNeuinfizierte = new JSpinner();
     private SpinnerNumberModel eingabeNeuinfizierteModel = new SpinnerNumberModel(0, 0, 1000, 1);
     private JSpinner eingabeTote = new JSpinner();
@@ -39,9 +42,10 @@ public class VIEW extends JFrame {
         // Frame-Initialisierung
         super();
         model = nModel;
+        datengeprueft = false;
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         int frameWidth = 537; 
-        int frameHeight = 300;
+        int frameHeight = 350;
         setSize(frameWidth, frameHeight);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (d.width - getSize().width) / 2;
@@ -68,12 +72,25 @@ public class VIEW extends JFrame {
         buttonAbsenden.setBounds(145, 212, 123, 41);
         buttonAbsenden.setText("Absenden");
         buttonAbsenden.setMargin(new Insets(2, 2, 2, 2));
+        buttonAbsenden.setVisible(false);
         buttonAbsenden.addActionListener(new ActionListener() { 
                 public void actionPerformed(ActionEvent evt) { 
                     buttonAbsenden_ActionPerformed(evt);
                 }
             });
         cp.add(buttonAbsenden);
+        buttonPruefen.setBounds(280, 212, 123, 41);
+        buttonPruefen.setText("Daten prüfen");
+        buttonPruefen.setMargin(new Insets(2, 2, 2, 2));
+        buttonPruefen.addActionListener(new ActionListener() { 
+                public void actionPerformed(ActionEvent evt) { 
+                    buttonPruefen_ActionPerformed(evt);
+                }
+            });
+        cp.add(buttonPruefen);
+        lPruefen.setBounds(280, 250, 200, 20);
+        lPruefen.setText("");
+        cp.add(lPruefen);
         eingabeNeuinfizierte.setBounds(159, 88, 166, 24);
         eingabeNeuinfizierte.setValue(0);
         eingabeNeuinfizierte.setModel(eingabeNeuinfizierteModel);
@@ -134,8 +151,29 @@ public class VIEW extends JFrame {
     } // end of main
 
     public void buttonAbsenden_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
         datenEingeben();
+        buttonAbsenden.setVisible(false);
+    } // end of buttonAbsenden_ActionPerformed
+    
+    public void buttonPruefen_ActionPerformed(ActionEvent evt) {
+        //Datum muss geprüft werden
+        buttonAbsenden.setVisible(false);
+        String ausgabe = "geprüft";
+        int tempTag = (int) eingabeTag.getValue();
+        int tempMonat = (int) eingabeMonat.getValue();
+        int tempJahr = (int) eingabeMonat.getValue();
+        if(tempMonat == 2 && tempTag > 29 && tempJahr == 2020) {
+            ausgabe = "Februar hat weniger Tage!";
+        } else if(tempMonat == 2 && tempTag > 28) {
+            ausgabe = "Februar hat weniger Tage!";
+        } else if((tempMonat == 4 || tempMonat == 6 || tempMonat == 9 || tempMonat == 11) && tempTag == 31) {
+            ausgabe = "Den 31. gibt es nicht!";
+        }
+        
+        if(ausgabe.equals("geprüft")) {
+            buttonAbsenden.setVisible(true);
+        }
+        lPruefen.setText(ausgabe);
     } // end of buttonAbsenden_ActionPerformed
 
     public void datenEingeben()
