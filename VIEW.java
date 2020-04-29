@@ -23,11 +23,11 @@ public class VIEW extends JFrame {
     private JSpinner eingabeTote = new JSpinner();
     private SpinnerNumberModel eingabeToteModel = new SpinnerNumberModel(0, 0, 1000000, 1);
     private JSpinner eingabeTag = new JSpinner();
-    private SpinnerNumberModel eingabeTagModel = new SpinnerNumberModel(0, 1, 31, 1);
+    private SpinnerNumberModel eingabeTagModel = new SpinnerNumberModel(1, 1, 31, 1);
     private JSpinner eingabeMonat = new JSpinner();
-    private SpinnerNumberModel eingabeMonatModel = new SpinnerNumberModel(0, 1, 12, 1);
+    private SpinnerNumberModel eingabeMonatModel = new SpinnerNumberModel(1, 1, 12, 1);
     private JSpinner eingabeJahr = new JSpinner();
-    private SpinnerNumberModel eingabeJahrModel = new SpinnerNumberModel(0, 0, 2030, 1);
+    private SpinnerNumberModel eingabeJahrModel = new SpinnerNumberModel(2020, 2019, 2030, 1);
     private JLabel lRegion = new JLabel();
     private JComboBox<String> jComboBox1 = new JComboBox<String>();
     private DefaultComboBoxModel<String> jComboBox1Model = new DefaultComboBoxModel<String>();
@@ -131,12 +131,12 @@ public class VIEW extends JFrame {
 
     public void buttonAbsenden_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
+        
     } // end of buttonAbsenden_ActionPerformed
 
     public void datenEingeben()
     {
-
+        
     }
 
     public void ausgabeTabellarisch()
