@@ -41,8 +41,8 @@ public class Model
         daten.add(datenpunktNeu);
     }
     
-    public void datenAuslesen()
+    public ArrayList<Datenpunkt> datenAuslesen()
     {
-        
+        return daten;
     }
 }
