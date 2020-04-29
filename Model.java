@@ -1,3 +1,4 @@
+import java.util.*;
 
 /**
  * Beschreiben Sie hier die Klasse Model.
@@ -7,30 +8,28 @@
  */
 public class Model
 {
-    int infizierte;
-    int todesfaelle;
-    int tag;
-    int monat;
+    ArrayList<Datenpunkt> daten;
 
     /**
      * Konstruktor für Objekte der Klasse Model
      */
     public Model()
     {
-       infizierte = 0;
-        todesfaelle = 0;
-        tag = -1;
-        monat = -1;
+       daten = new ArrayList<Datenpunkt>();
     }
 
     
-    //Infizierte, Todesfälle, Datum(tag,Monat)
-    public void datenManuellEingeben(int infizierteNeu, int todesfaelleNeu, int tagNeu, int monatNeu)
+    /**
+     * Neuen Datenpunkt eingeben
+     * 
+     * @param infizierteNeu
+     * @param todesfaelleNeu
+     * @param tagNeu
+     * @param monatNeu
+     */
+    public void datenpunktEingeben(int infizierteNeu, int todesfaelleNeu, int tagNeu, int monatNeu)
     {
-        infizierte = infizierteNeu;
-        todesfaelle = todesfaelleNeu;
-        tag = tagNeu;
-        monat = monatNeu;
+        daten.add(new Datenpunkt(infizierteNeu, todesfaelleNeu, tagNeu, monatNeu));
     }
     
     public void datenAuslesen()
