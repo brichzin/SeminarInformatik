@@ -189,7 +189,14 @@ public class VIEW extends JFrame {
 
     public void ausgabeTabellarisch()
     {
-        
-    }
+        int breite = 15;
+        // Kopfzeile
+            System.out.print(("Tag: ").substring(0,breite));
+            System.out.print(("Monat: ").substring(0,breite));
+            System.out.print(("Infizierte: ").substring(0,breite));
+            System.out.print(("Todesfälle: ").substring(0,breite));
+            System.out.println();
+        }
+
     // Ende Methoden
 } // end of class VIEW

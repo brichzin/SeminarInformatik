@@ -32,6 +32,15 @@ public class Model
         daten.add(new Datenpunkt(infizierteNeu, todesfaelleNeu, tagNeu, monatNeu));
     }
     
+    /**
+     * Neuen Datenpunkt hinzufügen
+     * 
+     * @param datenpunktNeu
+     */
+    public void datenpunktEingeben(Datenpunkt datenpunktNeu){
+        daten.add(datenpunktNeu);
+    }
+    
     public void datenAuslesen()
     {
         
