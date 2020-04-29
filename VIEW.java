@@ -12,6 +12,8 @@ import javax.swing.event.*;
  */
 
 public class VIEW extends JFrame {
+    
+    private Model model;
     // Anfang Attribute
     private JLabel lDatum = new JLabel();
     private JLabel lNeuinfizierte = new JLabel();
@@ -19,9 +21,9 @@ public class VIEW extends JFrame {
     private JLabel lEingabemaske = new JLabel();
     private JButton buttonAbsenden = new JButton();
     private JSpinner eingabeNeuinfizierte = new JSpinner();
-    private SpinnerNumberModel eingabeNeuinfizierteModel = new SpinnerNumberModel(0, 0, 1000000, 1);
+    private SpinnerNumberModel eingabeNeuinfizierteModel = new SpinnerNumberModel(0, 0, 1000, 1);
     private JSpinner eingabeTote = new JSpinner();
-    private SpinnerNumberModel eingabeToteModel = new SpinnerNumberModel(0, 0, 1000000, 1);
+    private SpinnerNumberModel eingabeToteModel = new SpinnerNumberModel(0, 0, 1000, 1);
     private JSpinner eingabeTag = new JSpinner();
     private SpinnerNumberModel eingabeTagModel = new SpinnerNumberModel(1, 1, 31, 1);
     private JSpinner eingabeMonat = new JSpinner();
@@ -33,9 +35,10 @@ public class VIEW extends JFrame {
     private DefaultComboBoxModel<String> jComboBox1Model = new DefaultComboBoxModel<String>();
     // Ende Attribute
 
-    public VIEW() { 
+    public VIEW(Model nModel) { 
         // Frame-Initialisierung
         super();
+        model = nModel;
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         int frameWidth = 537; 
         int frameHeight = 300;
@@ -126,17 +129,24 @@ public class VIEW extends JFrame {
     // Anfang Methoden
 
     public static void main(String[] args) {
-        new VIEW();
+        Model m = new Model();
+        new VIEW(m);
     } // end of main
 
     public void buttonAbsenden_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-        
+        datenEingeben();
     } // end of buttonAbsenden_ActionPerformed
 
     public void datenEingeben()
     {
-        
+        int tempNeuinfizierte = (int) eingabeNeuinfizierte.getValue();
+        int tempTote = (int) eingabeTote.getValue();
+        int tempTag = (int) eingabeTag.getValue();
+        int tempMonat = (int) eingabeMonat.getValue();
+        int tempJahr = (int) eingabeJahr.getValue();
+        model.datenpunktEingeben(tempNeuinfizierte, tempTote, tempTag, tempMonat);
+        //System.out.println(tempNeuinfizierte+", tote: "+ tempTote + tempTag + tempMonat + tempJahr);
     }
 
     public void ausgabeTabellarisch()
@@ -149,5 +159,6 @@ public class VIEW extends JFrame {
             System.out.print(("Todesfälle: ").substring(0,breite));
             System.out.println();
         }
+
     // Ende Methoden
 } // end of class VIEW
