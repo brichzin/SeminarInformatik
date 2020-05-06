@@ -221,6 +221,7 @@ public class VIEW extends JFrame {
         // Kopfzeile
             System.out.print(("Tag: "+luecke).substring(0,breite));
             System.out.print(("Monat: "+luecke).substring(0,breite));
+            System.out.print(("Jahr: "+luecke).substring(0,breite));
             System.out.print(("Infizierte: "+luecke).substring(0,breite));
             System.out.print(("Todesfälle: "+luecke).substring(0,breite));
             System.out.println();
@@ -230,6 +231,7 @@ public class VIEW extends JFrame {
           
           System.out.print((""+daten.get(i).tag+""+luecke).substring(0,breite));
           System.out.print((""+daten.get(i).monat+""+luecke).substring(0,breite));
+          System.out.print((""+daten.get(i).jahr+""+luecke).substring(0,breite));
           System.out.print((""+daten.get(i).infizierte+""+luecke).substring(0,breite));
           System.out.print((""+daten.get(i).todesfaelle+""+luecke).substring(0,breite));  
            System.out.println();  
