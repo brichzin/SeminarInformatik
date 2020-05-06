@@ -11,6 +11,7 @@ public class Datenpunkt
     int todesfaelle;
     int tag;
     int monat;
+    int jahr;
 
     /**
      * Konstruktor für Objekte der Klasse Datenpunkt
@@ -21,17 +22,19 @@ public class Datenpunkt
         todesfaelle = 0;
         tag = -1;
         monat = -1;
+        jahr = -1;
     }
     
     /**
      * Konstruktor für Objekte der Klasse Datenpunkt
      */
-    public Datenpunkt(int infizierteNeu, int todesfaelleNeu, int tagNeu, int monatNeu)
+    public Datenpunkt(int infizierteNeu, int todesfaelleNeu, int tagNeu, int monatNeu, int jahrNeu)
     {
         infizierte = infizierteNeu;
         todesfaelle = todesfaelleNeu;
         tag = tagNeu;
         monat = monatNeu;
+        jahr = jahrNeu;
     }
 
     /**
@@ -41,12 +44,14 @@ public class Datenpunkt
      * @param todesfaelleNeu
      * @param tagNeu
      * @param monatNeu
+     * @param jahrNeu
      */
-    public void datenAktualisieren(int infizierteNeu, int todesfaelleNeu, int tagNeu, int monatNeu)
+    public void datenAktualisieren(int infizierteNeu, int todesfaelleNeu, int tagNeu, int monatNeu, int jahrNeu)
     {
         infizierte = infizierteNeu;
         todesfaelle = todesfaelleNeu;
         tag = tagNeu;
         monat = monatNeu;
+        jahr = jahrNeu;
     }
 }

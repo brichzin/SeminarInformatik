@@ -195,7 +195,7 @@ public class VIEW extends JFrame {
         int tempTag = (int) eingabeTag.getValue();
         int tempMonat = (int) eingabeMonat.getValue();
         int tempJahr = (int) eingabeJahr.getValue();
-        model.datenpunktEingeben(tempNeuinfizierte, tempTote, tempTag, tempMonat);
+        model.datenpunktEingeben(tempNeuinfizierte, tempTote, tempTag, tempMonat, tempJahr);
         //System.out.println(tempNeuinfizierte+", tote: "+ tempTote + tempTag + tempMonat + tempJahr);
     }
 
