@@ -1,3 +1,4 @@
+import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -201,12 +202,27 @@ public class VIEW extends JFrame {
     public void ausgabeTabellarisch()
     {
         int breite = 15;
+        String luecke ="               ";
+        ArrayList <Datenpunkt> daten = model.datenAuslesen();
         // Kopfzeile
-            System.out.print(("Tag: ").substring(0,breite));
-            System.out.print(("Monat: ").substring(0,breite));
-            System.out.print(("Infizierte: ").substring(0,breite));
-            System.out.print(("Todesfälle: ").substring(0,breite));
+            System.out.print(("Tag: "+luecke).substring(0,breite));
+            System.out.print(("Monat: "+luecke).substring(0,breite));
+            System.out.print(("Infizierte: "+luecke).substring(0,breite));
+            System.out.print(("Todesfälle: "+luecke).substring(0,breite));
             System.out.println();
+        // Tabelle
+        for (int i=0; i<daten.size(); i++)
+        {
+          
+          System.out.print((""+daten.get(i).tag+""+luecke).substring(0,breite));
+          System.out.print((""+daten.get(i).monat+""+luecke).substring(0,breite));
+          System.out.print((""+daten.get(i).infizierte+""+luecke).substring(0,breite));
+          System.out.print((""+daten.get(i).todesfaelle+""+luecke).substring(0,breite));  
+           System.out.println();  
+        }
+            
+        
+        
         }
 
     // Ende Methoden
