@@ -24,6 +24,7 @@ public class VIEW extends JFrame {
     private JLabel lPruefen = new JLabel();
     private JButton buttonAbsenden = new JButton();
     private JButton buttonPruefen = new JButton();
+    private JButton buttonAusgabe = new JButton();
     private JSpinner eingabeNeuinfizierte = new JSpinner();
     private SpinnerNumberModel eingabeNeuinfizierteModel = new SpinnerNumberModel(0, 0, 1000, 1);
     private JSpinner eingabeTote = new JSpinner();
@@ -92,6 +93,15 @@ public class VIEW extends JFrame {
         lPruefen.setBounds(280, 250, 200, 20);
         lPruefen.setText("");
         cp.add(lPruefen);
+        buttonAusgabe.setBounds(145, 262, 123, 41);
+        buttonAusgabe.setText("Daten ausgeben");
+        buttonAusgabe.setMargin(new Insets(2, 2, 2, 2));
+        buttonAusgabe.addActionListener(new ActionListener() { 
+                public void actionPerformed(ActionEvent evt) { 
+                    buttonAusgeben_ActionPerformed(evt);
+                }
+            });
+        cp.add(buttonAusgabe);
         eingabeNeuinfizierte.setBounds(159, 88, 166, 24);
         eingabeNeuinfizierte.setValue(0);
         eingabeNeuinfizierte.setModel(eingabeNeuinfizierteModel);
@@ -154,6 +164,10 @@ public class VIEW extends JFrame {
     public void buttonAbsenden_ActionPerformed(ActionEvent evt) {
         datenEingeben();
         buttonAbsenden.setVisible(false);
+    } // end of buttonAbsenden_ActionPerformed
+    
+    public void buttonAusgeben_ActionPerformed(ActionEvent evt) {
+        ausgabeTabellarisch();
     } // end of buttonAbsenden_ActionPerformed
     
     public void buttonPruefen_ActionPerformed(ActionEvent evt) {
