@@ -39,14 +39,14 @@ public class ModelTest
     @Before
     public void setUp()
     {
-        datenpun1 = new Datenpunkt(1, 1, 1, 1);
-        datenpun2 = new Datenpunkt(2, 2, 2, 1);
+        datenpun1 = new Datenpunkt(1, 1, 1, 1, 2020);
+        datenpun2 = new Datenpunkt(2, 2, 2, 1, 2020);
         model1 = new Model();
-        datenpun1.datenAktualisieren(2, 0, 28, 01);
-        datenpun2.datenAktualisieren(2, 0, 29, 01);
-        datenpun3 = new Datenpunkt(4, 0, 31, 01);
-        datenpun4 = new Datenpunkt(1, 0, 03, 02);
-        datenpun5 = new Datenpunkt(4, 0, 04, 02);
+        datenpun1.datenAktualisieren(2, 0, 28, 01, 2020);
+        datenpun2.datenAktualisieren(2, 0, 29, 01, 2020);
+        datenpun3 = new Datenpunkt(4, 0, 31, 01, 2020);
+        datenpun4 = new Datenpunkt(1, 0, 03, 02, 2020);
+        datenpun5 = new Datenpunkt(4, 0, 04, 02, 2020);
         model1.datenpunktEingeben(datenpun1);
         model1.datenpunktEingeben(datenpun2);
         model1.datenpunktEingeben(datenpun3);

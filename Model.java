@@ -26,10 +26,11 @@ public class Model
      * @param todesfaelleNeu
      * @param tagNeu
      * @param monatNeu
+     * @param jahrNeu
      */
-    public void datenpunktEingeben(int infizierteNeu, int todesfaelleNeu, int tagNeu, int monatNeu)
+    public void datenpunktEingeben(int infizierteNeu, int todesfaelleNeu, int tagNeu, int monatNeu, int jahrNeu)
     {
-        daten.add(new Datenpunkt(infizierteNeu, todesfaelleNeu, tagNeu, monatNeu));
+        daten.add(new Datenpunkt(infizierteNeu, todesfaelleNeu, tagNeu, monatNeu, jahrNeu));
     }
     
     /**
