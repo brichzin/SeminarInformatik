@@ -3,6 +3,7 @@ import java.io.PrintWriter;
 import java.io.FileReader; 
 import java.util.LinkedHashMap; 
 import java.util.Map; 
+import java.util.*;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.ParseException;
@@ -22,7 +23,7 @@ public class JSONCoder
         
     }
 
-    public static void write(String filename, Datenpunkt pkt) throws Exception {
+    public static void writeDatenpunkt(String filename, Datenpunkt pkt) throws Exception {
         //json-Inhalte zusammenstellen
         JSONObject jo = new JSONObject();
         jo.put("infizierte", pkt.infizierte);
@@ -37,6 +38,35 @@ public class JSONCoder
           
         pw.flush(); 
         pw.close(); 
+    }
+    
+    public static void write (String filename, ArrayList<Datenpunkt> dp) {
+        JSONArray ja = new JSONArray();
+        
+        for(int i = 0; i < dp.size(); i++) {
+            JSONObject jo = new JSONObject();
+            jo.put("infizierte", dp.get(i).infizierte);
+            jo.put("todesfaelle", dp.get(i).todesfaelle);
+            jo.put("tag", dp.get(i).tag);
+            jo.put("monat", dp.get(i).monat);
+            jo.put("jahr", dp.get(i).jahr);
+            ja.add(jo);
+        }
+        
+        JSONObject ausgabe = new JSONObject();
+        ausgabe.put("datenpunkte", ja);
+        
+        // json-Datei generieren:"JSONExample.json"
+        try{
+            PrintWriter pw = new PrintWriter("Datenpunkte/"+filename+".json"); 
+            pw.write(ausgabe.toJSONString()); 
+              
+            pw.flush(); 
+            pw.close(); 
+        } catch (Exception e) {
+            System.out.println (e.toString());
+        }
+        
     }
     
     static Datenpunkt read(String filename) throws Exception  
