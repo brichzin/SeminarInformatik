@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=rs
+comment0.target=String[]\ getColumnNames(ResultSet)
+comment1.params=rs
+comment1.target=String[]\ getColumnValues(ResultSet)
+numComments=2

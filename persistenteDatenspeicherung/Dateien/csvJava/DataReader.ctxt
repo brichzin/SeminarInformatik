@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=nFile
+comment0.target=DataReader(java.lang.String)
+comment1.params=
+comment1.target=void\ reload()
+comment2.params=
+comment2.target=void\ getData()
+comment3.params=
+comment3.target=int\ getColumnNum()
+comment4.params=sDate
+comment4.target=java.util.Date\ ToDate(java.lang.String)
+comment4.text=\r\n\ \ \ \ public\ void\ \ dateTest()\r\n\ \ \ \ {\r\n\ \ \ \ \ \ String\ sDate;\r\n\ \ \ \ \ \ sDate\="10.11.2008";\r\n\ \ \ \ \ \ SimpleDateFormat\ dFormat\=new\ SimpleDateFormat("dd.MM.yyyy");\r\n\ \ \ \ \ \ ParsePosition\ pos\ \=\ new\ ParsePosition(0);\r\n\ \ \ \ \ \ Date\ nDate\=\ dFormat.parse(sDate,pos);\r\n\ \ \ \ \ \ StringBuffer\ dateBuffer\ \=\ new\ StringBuffer();\r\n\ \ \ \ \ \ FieldPosition\ fpos\ \=\ new\ FieldPosition(0);\r\n\ \ \ \ \ \ dFormat.format(nDate,dateBuffer,fpos);\r\n\ \ \ \ \ \ \ \ System.out.println("Datum\ als\ DATE\:\ "+nDate);\r\n\ \ \ \ \ \ \ \ System.out.println("Datum\ als\ String\:\ "+dateBuffer);\r\n\ \ \ \ }\r\n
+numComments=5

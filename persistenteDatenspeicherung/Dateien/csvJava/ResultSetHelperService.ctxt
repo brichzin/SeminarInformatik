@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=rs
+comment0.target=String[]\ getColumnNames(ResultSet)
+comment1.params=rs
+comment1.target=String[]\ getColumnValues(ResultSet)
+comment10.params=c
+comment10.target=String\ read(Clob)
+comment2.params=obj
+comment2.target=String\ handleObject(Object)
+comment3.params=decimal
+comment3.target=String\ handleBigDecimal(BigDecimal)
+comment4.params=rs\ columnIndex
+comment4.target=String\ handleLong(ResultSet,\ int)
+comment5.params=rs\ columnIndex
+comment5.target=String\ handleInteger(ResultSet,\ int)
+comment6.params=rs\ columnIndex
+comment6.target=String\ handleDate(ResultSet,\ int)
+comment7.params=time
+comment7.target=String\ handleTime(Time)
+comment8.params=timestamp
+comment8.target=String\ handleTimestamp(Timestamp)
+comment9.params=rs\ colType\ colIndex
+comment9.target=String\ getColumnValue(ResultSet,\ int,\ int)
+numComments=11

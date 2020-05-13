@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=pathName
+comment0.target=DatabaseConn(java.lang.String)
+comment0.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Database\r\n\ @param\ pathName\ \ Der\ Pfad\ zur\ .db-Datei\ (incl\ ".db")\r\n
+comment1.params=
+comment1.target=void\ createTables()
+comment1.text=\r\n\ Erstellt\ die\ Tabellen\ f\u00FCr\ unsere\ Datenbank.\r\n\ Die\ Datenbank\ sollte\ zuvor\ leer\ sein\ oder\ zumindest\ noch\ keine\r\n\ Tabellen\ enthalten\ die\ von\ uns\ verwendet\ werden.\r\n
+comment2.params=tableName
+comment2.target=void\ deleteTable(java.lang.String)
+comment2.text=\r\n\ L\u00F6scht\ eine\ Tabelle,\ wenn\ diese\ vorhanden\ ist\r\n\ @param\ name\ \ Der\ Name\ der\ Tabelle,\ die\ gel\u00F6scht\ werden\ soll\r\n
+comment3.params=command
+comment3.target=void\ doCommand(java.lang.String)
+comment3.text=\r\n\ F\u00FChrt\ einen\ SQL-Befehl\ mauell\ aus.\ Da\ es\ keinen\ Rueckgabewert\ gibt,\r\n\ ist\ sie\ ausschliesslich\ zur\ Bearbeitung\ und\ nicht\ zur\ Abfrage\ geeignet\r\n\ @param\ command\ \ \ Dier\ SQL-Befehl\ als\ String\r\n
+comment4.params=tableName
+comment4.target=java.sql.ResultSet\ getTable(java.lang.String)
+comment4.text=\r\n\ Gibt\ die\ Tabelle\ zurueck\r\n\ @param\ tableName\ Der\ Name\ der\ Tabelle\r\n\ @return\ Die\ Ergebnisse\ der\ Suche\ als\ ResultSet\r\n
+comment5.params=
+comment5.target=void\ close()
+comment5.text=\r\n\ Schlie\u00DFt\ die\ Datenbankverbindung.\r\n\ Danach\ ist\ dieses\ Objekt\ nicht\ mehr\ nutzbar\ und\ sollte\ nicht\ weiter\ referenziert\ werden.\r\n\ Diese\ Methode\ sollte\ immmer\ aufgerufen\ werden,\ wenn\ die\ Datenbank\ nicht\ mehr\ gebraucht\r\n\ wird,\ da\ die\ Verbindung\ sonst\ erst\ beim\ n\u00E4chsten\ GarbageCollector\ durchlauf\ geschlossen\r\n\ wird.\r\n
+comment6.params=
+comment6.target=void\ finalize()
+comment6.text=\r\n\ Diese\ Methode\ wird\ vom\ GarbageCollector\ als\ Destruktor\ aufgerufen.\r\n\ Wir\ nutzen\ sie\ um\ auch\ in\ diesem\ Fall\ nach\ M\u00F6glichkeit\ die\ Datenbankvebindung\r\n\ zu\ schlie\u00DFen.\r\n
+numComments=7

@@ -1,0 +1,26 @@
+
+http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_17_010.htm
+
+17.10 Persistente Objekte und Serialisierung  Zur nächsten ÜberschriftZur vorigen Überschrift
+
+Objekte liegen zwar immer nur zur Laufzeit vor, doch auch nach dem Beenden der virtuellen Maschine soll ihre Struktur nicht verloren gehen. Gewünscht ist ein Mechanismus, der die Objektstruktur und Variablenbelegung zu einer bestimmten Zeit sicher (persistent) macht und an anderer Stelle wieder hervorholt und die Objektstruktur und Variablenbelegung restauriert. Im gespeicherten Datenformat müssen alle Informationen wie Objekttyp und Variablentyp enthalten sein, um später das richtige Wiederherstellen zu ermöglichen. Da Objekte oftmals weitere Objekte einschließen, müssen auch diese Unterobjekte gesichert werden (schreibe ich eine Liste mit Bestellungen, so ist die Liste ohne die referenzierten Objekte sinnlos). Genau dieser Mechanismus wird auch dann angewendet, wenn Objekte über das Netzwerk schwirren. [Die Rede ist hier von RMI. ] Die persistenten Objekte sichern also neben ihren eigenen Informationen auch die Unterobjekte – also die von der betrachtenden Stelle aus erreichbaren. Beim Speichern wird rekursiv ein Objektbaum durchlaufen, um eine vollständige Datenstruktur zu erhalten. Der doppelte Zugriff auf ein Objekt wird hier ebenso beachtet wie der Fall, dass zyklische Abhängigkeiten auftreten. Jedes Objekt bekommt dabei ein Handle, sodass es im Datenstrom nur einmal kodiert wird.
+
+Unter Java SE lassen sich Objekte über verschiedene Ansätze automatisch persistent abbilden und speichern:
+
+    Standardserialisierung: Die Objektstruktur und Zustände werden in einem binären Format gesichert. Das Verfahren wird auch Java Object Serialization (JOS) genannt – der Punkt, mit dem wir uns im Folgenden beschäftigen wollen. Die Standardserialisierung ist sehr wichtig bei entfernten Methodenaurufen und weniger, um Dinge über einen langen Zeitraum abzuspeichern und dann irgendwann einmal wieder aus dem Schrank zu holen.
+
+    XML-Serialisierung über JavaBeans Persistence: JavaBeans – und nur solche – können wir in einem XML-Format sichern. Eine Lösung ist die JavaBeans Persistence (JBP), die ursprünglich für Swing gedacht war. Denn wenn der Zustand einer grafischen Oberfläche mit JOS binär persistiert wird, sind Änderungen an den Internas der Swing-API nicht so einfach möglich, da das Binärformat der JOS sehr eng mit dem Objektmodell verbunden ist. Das heißt, Objekte lassen sich mitunter nicht mehr aus dem Binärdokument rekonstruieren. JBP entkoppelt das, indem nur über Setter/Getter kommunziert wird und nicht auf internen Referenzen, die ein Implementierungsdetail sind, was sich jederzeit ändern kann. Heutzutage spielt JBP in der Praxis kaum eine Rolle.
+
+    XML-Abbildung über JAXB: Mit JAXB steht eine zweite API zum Abbilden der Objektstruktur auf XML-Dokumente bereit. JAXB ist Teil der Standardbibliothek ab Version 6 und wird in Kapitel 18, »Die eXtensible Markup Language (XML)«, erklärt. Sie ist eine sehr wichtige Technologie, insbesondere für Web-Service-Aufrufe.
+
+Die drei Möglichkeiten JOS, JBP und JAXB sind in Java SE schon eingebaut. Die Standard-serialisierung erzeugt ein binäres Format und ist sehr stark auf Java ausgerichtet, sodass andere Systeme nicht viel mit den Daten anfangen können. XML ist als Format praktisch, da es auch von anderen Systemen verarbeitet werden kann. Ein anderes kompaktes Binärformat, welches auch Interoperabilität erlaubt, ist Protocol Buffers (http://code.google.com/p/protobuf/) von Google; das Unternehmen setzt es intern ein, wenn unterschiedliche Anwendungen Daten austauschen sollen.
+
+Etwas weiter gedacht lassen sich auch Objekte in relationalen Datenbanken speichern, was sich Objekt-relationales Mapping (OR-Mapping) nennt. Das ist sehr anspruchsvoll, da die Objektmodelle und Tabellen so ganz anders sind. Die Java SE bietet zum OR-Mapping keine Unterstütztung an, doch mit zusätzlichen Frameworks, wie der JPA (Java Persistence API), ist das zu schaffen. Auch von Hand können die Objekte über JDBC in die Datenbank gebracht werden, was aber nicht zeitgemäß ist.
+------
+als JSON
+
+https://www.kompf.de/java/jaxbjson.html
+
+https://javabeginners.de/Frameworks/Json/Json_schreiben.php
+
+https://lerneprogrammieren.de/json/

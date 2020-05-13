@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=DATENBANKVERBINDUNG2()
+comment0.text=\r\n\ Baut\ die\ Verbindung\ zur\ Datenbank\ auf.\r\n
+comment1.params=
+comment1.target=java.sql.Connection\ VerbindungGeben()
+comment1.text=\r\n\ Meldet\ das\ Verbindungsobjekt.\r\n\ @return\ verbindug\r\n
+comment2.params=
+comment2.target=void\ VerbindungBeenden()
+comment2.text=\r\n\ Beendet\ die\ Verbindung,\ danach\ ist\ Schluss.\r\n
+comment3.params=
+comment3.target=void\ DatenHolen()
+comment3.text=\r\n\ Holt\ alle\ Daten\ und\ gibt\ sie\ aus.\r\n
+comment4.params=benutzername
+comment4.target=int\ KennwortHolen(java.lang.String)
+comment4.text=\r\n\ Holt\ das\ Kennwort\ zu\ einem\ gegebenen\ Benutzernamen.\r\n\ Kann\ fuer\ eine\ Zugangsueberpruefung\ verwendet\ werden.\r\n\ \r\n\ @param\ benutzername\r\n\ @return\ Kennwort\ in\ Form\ einer\ Zahl;\ existiert\ der\ Benutzer\ nicht,\ wird\ -1\ zurueckgegeben\r\n
+comment5.params=benutzername\ passwort
+comment5.target=boolean\ KennwortUeberpruefen(java.lang.String,\ int)
+comment5.text=\r\n\ Holt\ das\ Kennwort\ zu\ einem\ gegebenen\ Benutzernamen.\r\n\ Kann\ fuer\ eine\ Zugangsueberpruefung\ verwendet\ werden.\r\n\ \r\n\ @param\ benutzername\r\n\ @param\ kennwort\r\n\ @return\ true,\ falls\ die\ Zugangsdatenkorrekt\ sind\r\n
+comment6.params=benutzerNeu\ passwortNeu
+comment6.target=void\ NeuenBenutzerEingeben(java.lang.String,\ int)
+numComments=7
