@@ -60,20 +60,20 @@ public class Model
     {
         //Pfad "coronaStatistikDatei.csv"
 
-          String dateiname = "coronaStatistikDatei.csv";
+        String dateiname = "coronaStatistikDatei.csv";
         // Beschränkung zunächst auf 5 Werte pro Datenpunkt
-          String[] einzeldaten=new String[5];
-          FileReader reader = new FileReader(dateiname);
-          BufferedReader inBuffer = new BufferedReader(reader);
+        String[] einzeldaten=new String[5];
+        FileReader reader = new FileReader(dateiname);
+        BufferedReader inBuffer = new BufferedReader(reader);
 
-          String line = inBuffer.readLine();
+        String line = inBuffer.readLine();
    
-          while (line != null)
-          {
-          //System.out.println(line);
-          einzeldaten = line.split(",");
-          datenpunktEingeben(Integer.parseInt(einzeldaten[0]),Integer.parseInt(einzeldaten[1]),Integer.parseInt(einzeldaten[2]),Integer.parseInt(einzeldaten[3]),Integer.parseInt(einzeldaten[4]));
-          line = inBuffer.readLine();
+        while (line != null)
+        {
+            //System.out.println(line);
+            einzeldaten = line.split(",");
+            datenpunktEingeben(Integer.parseInt(einzeldaten[0]),Integer.parseInt(einzeldaten[1]),Integer.parseInt(einzeldaten[2]),Integer.parseInt(einzeldaten[3]),Integer.parseInt(einzeldaten[4]));
+            line = inBuffer.readLine();
         }
     }
     
@@ -85,13 +85,13 @@ public class Model
         
         String line;
         line = Integer.toString(daten.infizierte) + "," + 
-            Integer.toString(daten.todesfaelle) + "," +
-            Integer.toString(daten.tag) + "," +
-            Integer.toString(daten.monat) + "," +
-            Integer.toString(daten.jahr) + "\n";
+        Integer.toString(daten.todesfaelle) + "," +
+        Integer.toString(daten.tag) + "," +
+        Integer.toString(daten.monat) + "," +
+        Integer.toString(daten.jahr) + "\n";
             
-            outBuffer.write(line);
-            outBuffer.close();
+        outBuffer.write(line);
+        outBuffer.close();
         
     }
 }
