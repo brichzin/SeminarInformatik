@@ -1,3 +1,18 @@
+Jason Quellen:
+https://www.json.org/json-de.html
+    gute Übersicht über JSON als formale SPrache -> Syntaxdiagramm für INfo12
+https://jar-download.com/download-handling.php
+    jar Dateien für Json VErarbeitung herunterladen
+BlueJ -> Werkzeuge -> Einstellungen -> Bibliotheken
+  arrayBuilder1.jar und javax.json-api-1.1.2.jar   einbinden
+Nach https://javabeginners.de/Frameworks/Json/Json_schreiben.php
+   Json Objekt erzeugen und in eine DAtei schreiben
+    Wenn Dateiendung .json verwendet wird, dann kann sich sich das Objekt / die Objekte strukturiert im Browser anzeigen lassen 
+  
+
+
+
+
 
 http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_17_010.htm
 
