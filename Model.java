@@ -59,9 +59,10 @@ public class Model
     public void datenAusDateiLesen() throws IOException
     {
         //Pfad "coronaStatistikDatei.csv"
+
           String dateiname = "coronaStatistikDatei.csv";
         // Beschränkung zunächst auf 5 Werte pro Datenpunkt
-        String[] einzeldaten=new String[5];
+          String[] einzeldaten=new String[5];
           FileReader reader = new FileReader(dateiname);
           BufferedReader inBuffer = new BufferedReader(reader);
 
@@ -71,7 +72,7 @@ public class Model
           {
           //System.out.println(line);
           einzeldaten = line.split(",");
-          datenpunktEingeben(Integer.parseInt(einzeldaten[0]),0,Integer.parseInt(einzeldaten[2]),Integer.parseInt(einzeldaten[3]),Integer.parseInt(einzeldaten[4]));
+          datenpunktEingeben(Integer.parseInt(einzeldaten[0]),Integer.parseInt(einzeldaten[1]),Integer.parseInt(einzeldaten[2]),Integer.parseInt(einzeldaten[3]),Integer.parseInt(einzeldaten[4]));
           line = inBuffer.readLine();
         }
     }
