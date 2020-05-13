@@ -1,5 +1,8 @@
 import java.util.*;
-
+import java.io.IOException;
+import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
 /**
  * Beschreiben Sie hier die Klasse Model.
  * 
@@ -45,5 +48,24 @@ public class Model
     public ArrayList<Datenpunkt> datenAuslesen()
     {
         return daten;
+    }
+    
+    /**
+     * Liest die Daten aus einer CSV-Datei und erstellt daraus neue Datenpunkte
+     */
+    public void datenAusDateiLesen(String dateiname) throws IOException
+    {
+        //Pfad "coronaStatistikDatei.csv"
+        //String dateiname = "";
+          FileReader reader = new FileReader(dateiname);
+          BufferedReader inBuffer = new BufferedReader(reader);
+
+          String line = inBuffer.readLine();
+   
+          while (line != null)
+          {
+          System.out.println(line);
+          line = inBuffer.readLine();
+        }
     }
 }
