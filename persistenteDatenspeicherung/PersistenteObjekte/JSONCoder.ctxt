@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=JSONCoder
+comment0.text=\r\n\ JSONCoder\ kann\ einen\ vorhandenen\ Datenpunkt\ zu\ einer\ json-Datei\ umwandeln\ \r\n\ und\ umgekehrt\ eine\ json-Datei\ in\ einen\ Datenpunkt\ umwandeln.\r\n\ \r\n
+comment1.params=
+comment1.target=JSONCoder()
+comment1.text=\r\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ JSONCoder\r\n
+comment2.params=filename\ pkt
+comment2.target=void\ write(java.lang.String,\ Datenpunkt)
+comment3.params=filename
+comment3.target=Datenpunkt\ read(java.lang.String)
+numComments=4
