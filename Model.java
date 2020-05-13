@@ -1,8 +1,11 @@
-import java.util.*;
+ import java.util.*;
 import java.io.IOException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 /**
  * Beschreiben Sie hier die Klasse Model.
  * 
@@ -53,10 +56,10 @@ public class Model
     /**
      * Liest die Daten aus einer CSV-Datei und erstellt daraus neue Datenpunkte
      */
-    public void datenAusDateiLesen(String dateiname) throws IOException
+    public void datenAusDateiLesen() throws IOException
     {
         //Pfad "coronaStatistikDatei.csv"
-        //String dateiname = "";
+          String dateiname = "coronaStatistikDatei.csv";
         // Beschränkung zunächst auf 5 Werte pro Datenpunkt
         String[] einzeldaten=new String[5];
           FileReader reader = new FileReader(dateiname);
@@ -71,5 +74,23 @@ public class Model
           datenpunktEingeben(Integer.parseInt(einzeldaten[0]),0,Integer.parseInt(einzeldaten[2]),Integer.parseInt(einzeldaten[3]),Integer.parseInt(einzeldaten[4]));
           line = inBuffer.readLine();
         }
+    }
+    
+    public void datenInDateiSchreiben(Datenpunkt daten) throws IOException
+    {
+        String dateiname = "coronaStatistikDatei.csv";
+        FileWriter writer = new FileWriter(dateiname);
+        BufferedWriter outBuffer = new BufferedWriter(writer);
+        
+        String line;
+        line = Integer.toString(daten.infizierte) + "," + 
+            Integer.toString(daten.todesfaelle) + "," +
+            Integer.toString(daten.tag) + "," +
+            Integer.toString(daten.monat) + "," +
+            Integer.toString(daten.jahr) + "\n";
+            
+            outBuffer.write(line);
+            outBuffer.close();
+        
     }
 }
