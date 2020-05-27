@@ -59,12 +59,15 @@ public class DBAnbindung
 
     }
 
-    private void inDatenbankEingeben(int TagNeu, int MonatNeu, int JahrNeu, int InfizierteNeu, int ToteNeu) {
+    public void inDatenbankEingeben(int TagNeu, int MonatNeu, int JahrNeu, int InfizierteNeu, int ToteNeu) {
         try {
             Statement stat = c.createStatement();
+            //ResultSet res = stat.executeQuery("SELECT max('ID') FROM CoronaDaten");
+            //int key = res.getInt("ID");
+            //key = key + 1;
             int Anzahl=stat.executeUpdate("INSERT INTO CoronaDaten"+
-                    "VALUES ( TagNeu, MonatNeu, JahrNeu, InfizierteNeu, ToteNeu)");
-
+                    "VALUES (key, TagNeu, MonatNeu, JahrNeu, InfizierteNeu, ToteNeu)");
+            
         }
         catch (Exception e) {
             System.out.println(e);

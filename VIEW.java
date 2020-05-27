@@ -38,6 +38,9 @@ public class VIEW extends JFrame {
     private JLabel lRegion = new JLabel();
     private JComboBox<String> jComboBox1 = new JComboBox<String>();
     private DefaultComboBoxModel<String> jComboBox1Model = new DefaultComboBoxModel<String>();
+    
+    //DBAnbindung db;
+    
     // Ende Attribute
 
     public VIEW(Model nModel) { 
@@ -150,6 +153,8 @@ public class VIEW extends JFrame {
         jComboBox1Model.addElement("Thüringen");
         cp.add(jComboBox1);
         // Ende Komponenten
+        
+        //db = new DBAnbindung();
 
         setVisible(true);
     } // end of public VIEW
@@ -210,6 +215,7 @@ public class VIEW extends JFrame {
         int tempMonat = (int) eingabeMonat.getValue();
         int tempJahr = (int) eingabeJahr.getValue();
         model.datenpunktEingeben(tempNeuinfizierte, tempTote, tempTag, tempMonat, tempJahr);
+        //db.inDatenbankEingeben(tempTag, tempMonat, tempJahr, tempNeuinfizierte, tempTote);
         //System.out.println(tempNeuinfizierte+", tote: "+ tempTote + tempTag + tempMonat + tempJahr);
     }
 
