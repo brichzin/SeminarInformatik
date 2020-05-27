@@ -113,7 +113,9 @@ public class JSONCoder
      * @return Arraylist der Datenpunkte, die eingelesen wurden
      */
     static ArrayList<Datenpunkt> read(String filename) {
-        ArrayList<Datenpunkt> dp = new ArrayList<Datenpunkt>();
+        ArrayList<Datenpunkt> dp = new ArrayList<Datenpunkt>(); 
+        
+        
         //to do
         return dp;
     }
