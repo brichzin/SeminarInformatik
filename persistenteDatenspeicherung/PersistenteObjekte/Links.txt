@@ -9,7 +9,12 @@ Nach https://javabeginners.de/Frameworks/Json/Json_schreiben.php
    Json Objekt erzeugen und in eine DAtei schreiben
     Wenn Dateiendung .json verwendet wird, dann kann sich sich das Objekt / die Objekte strukturiert im Browser anzeigen lassen 
   
-
+**Umsetzung mit json simple**: 
+json-simple: https://code.google.com/archive/p/json-simple/
+anleitung für Maps, Arrays etc.: 
+	https://www.geeksforgeeks.org/parse-json-java/
+Groblösung mit System.out.println-Zwischenschritten: 
+	https://www.tutorialspoint.com/json/json_java_example.htm
 
 
 
@@ -41,9 +46,3 @@ https://javabeginners.de/Frameworks/Json/Json_schreiben.php
 https://lerneprogrammieren.de/json/
 
 
-Umsetzung mit json simple: 
-json-simple: https://code.google.com/archive/p/json-simple/
-anleitung für Maps, Arrays etc.: 
-	https://www.geeksforgeeks.org/parse-json-java/
-Groblösung mit System.out.println-Zwischenschritten: 
-	https://www.tutorialspoint.com/json/json_java_example.htm
