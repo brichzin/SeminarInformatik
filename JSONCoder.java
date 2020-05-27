@@ -29,7 +29,7 @@ public class JSONCoder
      * @param Dateiname (ohne Endung .json), wie die entstehende json-Datei zu benennen ist.
      * @param Datenpunkt, der eingelesen werden soll
      */
-    public static void writeDatenpunkt(String filename, Datenpunkt pkt) throws Exception {
+    public void writeDatenpunkt(String filename, Datenpunkt pkt) throws Exception {
         //json-Inhalte zusammenstellen
         JSONObject jo = new JSONObject();
         jo.put("infizierte", pkt.infizierte);
@@ -52,7 +52,7 @@ public class JSONCoder
      * @param Dateiname (ohne Endung .json), wie die entstehende json-Datei zu benennen ist.
      * @param Liste der Datenpunkte, die eingelesen werden sollen
      */
-    public static void write (String filename, ArrayList<Datenpunkt> dp) {
+    public void write (String filename, ArrayList<Datenpunkt> dp) {
         JSONArray ja = new JSONArray();
 
         for(int i = 0; i < dp.size(); i++) {
@@ -88,10 +88,13 @@ public class JSONCoder
      * @param Dateiname (ohne Endung .json), unter dem die json-Datei im Ordner Datenpunkte zu finden ist.
      * @return Datenpunkt, der eingelesen wurde
      */
-    static Datenpunkt readDatenpunkt(String filename) throws Exception  
+    Datenpunkt readDatenpunkt(String filename) throws Exception  
     { 
         // parsing file "JSONExample.json" 
-        JSONObject jo = (JSONObject) (new JSONParser().parse(new FileReader("Datenpunkte/"+filename+".json"))); 
+        try{
+            JSONObject jo = (JSONObject) (new JSONParser().parse(new FileReader("Datenpunkte/"+filename+".json"))); 
+        
+
 
         // json auslesen
         int infizierte = (int) (long) jo.get("infizierte"); 
@@ -99,12 +102,18 @@ public class JSONCoder
         int tag = (int) (long) jo.get("tag"); 
         int monat = (int) (long) jo.get("monat"); 
         int jahr = (int) (long) jo.get("jahr"); 
+        
 
         Datenpunkt pkt = new Datenpunkt (infizierte, todesfaelle, tag, monat, jahr); 
         return pkt;
+        
+        }
+        catch (Exception e) {
+            System.out.println (e.toString());
+            return null;
+        }
     } 
 
-    
     /**
      * Die Methode read liest den in der json-Datei hinterlegte Datenpunkte ein
      * und gibt sie als ArrayList von Datenpunkten zurück. 
@@ -112,10 +121,37 @@ public class JSONCoder
      * @param Dateiname (ohne Endung .json), unter dem die json-Datei im Ordner Datenpunkte zu finden ist.
      * @return Arraylist der Datenpunkte, die eingelesen wurden
      */
-    static ArrayList<Datenpunkt> read(String filename) {
-        ArrayList<Datenpunkt> dp = new ArrayList<Datenpunkt>();
+    ArrayList<Datenpunkt> read(String filename) {
+        ArrayList<Datenpunkt> datenpunkte = new ArrayList<Datenpunkt>();
+        
+        try{
+
+        JSONObject jo = (JSONObject) (new JSONParser().parse(new FileReader("Datenpunkte/"+filename+".json"))); 
+        //JSONArray jasonArray = (JSONArray) (new JSONParser().parse(new FileReader("Datenpunkte/"+filename+".json")));
+
+        JSONArray jasonArray = (JSONArray) jo.get("datenpunkte"); 
+
+        for(int i = 0; i < jasonArray.size(); i++) {
+            Datenpunkt dp = new Datenpunkt();
+            int infizierte = (int) (long) ((JSONObject) jasonArray.get(i)).get("infizierte"); 
+            int todesfaelle = (int) (long) ((JSONObject) jasonArray.get(i)).get("todesfaelle"); 
+            int tag = (int) (long) ((JSONObject) jasonArray.get(i)).get("tag"); 
+            int monat = (int) (long) ((JSONObject) jasonArray.get(i)).get("monat"); 
+            int jahr = (int) (long) ((JSONObject) jasonArray.get(i)).get("jahr"); 
+
+            dp.datenAktualisieren(infizierte, todesfaelle, tag, monat,jahr);
+
+            datenpunkte.add(dp);
+        }
+
         //to do
-        return dp;
+        return datenpunkte;
+        
+        }
+        catch (Exception e) {
+            System.out.println (e.toString());
+            return null;
+        }
     }
-    //ToDo 
+
 }
