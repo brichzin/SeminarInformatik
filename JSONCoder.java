@@ -121,6 +121,7 @@ public class JSONCoder
      * @param Dateiname (ohne Endung .json), unter dem die json-Datei im Ordner Datenpunkte zu finden ist.
      * @return Arraylist der Datenpunkte, die eingelesen wurden
      */
+
     ArrayList<Datenpunkt> read(String filename) {
         ArrayList<Datenpunkt> datenpunkte = new ArrayList<Datenpunkt>();
         
