@@ -43,4 +43,17 @@ public class DBAnbindung
         }
 
     }
+    /*private void inDatenbankEingeben(int TagNeu, int MonatNeu, int JahrNeu, int InfizierteNeu, int ToteNeu) {
+        try {
+            Statement stat = c.createStatement();
+            int Anzahl=stat.executeUpdate("INSERT INTO CoronaDaten"+
+            "VALUES ( TagNeu, MonatNeu, JahrNeu, InfizierteNeu, ToteNeu)");
+            
+        }
+        catch (Exception e) {
+            System.out.println(e);
+
+        }
+
+    }*/
 }
