@@ -5,7 +5,7 @@
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-
+import java.util.*;
 import java.io.IOException;
 import java.io.File;
 import java.io.FileReader;
@@ -46,12 +46,21 @@ public class DateiAnbindung
         }
     }
     
-    public void datenInDateiSchreiben(Datenpunkt daten) throws IOException
+    /**
+     * Daten in CSV-Datei schreiben
+     */
+    public void datenInDateiSchreiben() throws IOException
     {
+        ArrayList<Datenpunkt> datenliste = aktuellesModel.datenAuslesen();
         String dateiname = "coronaStatistikDatei.csv";
         FileWriter writer = new FileWriter(dateiname);
         BufferedWriter outBuffer = new BufferedWriter(writer);
         
+        Datenpunkt daten;
+        for (int i=0; i<datenliste.size(); i++)
+        {
+        daten = datenliste.get(i);    
+            
         String line;
         line = Integer.toString(daten.infizierte) + "," + 
         Integer.toString(daten.todesfaelle) + "," +
@@ -60,6 +69,7 @@ public class DateiAnbindung
         Integer.toString(daten.jahr) + "\n";
             
         outBuffer.write(line);
+    }
         outBuffer.close();
         
     }
