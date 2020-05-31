@@ -78,7 +78,6 @@ public class JSONCoder
         } catch (Exception e) {
             System.out.println (e.toString());
         }
-
     }
 
     /**
@@ -115,7 +114,7 @@ public class JSONCoder
     } 
 
     /**
-     * Die Methode read liest den in der json-Datei hinterlegte Datenpunkte ein
+     * Die Methode read liest die in der json-Datei hinterlegte Datenpunkte ein
      * und gibt sie als ArrayList von Datenpunkten zurück. 
      * Der anzugebene Dateiname wird automatisch um die Endung .json ergänzt und die Datei im Ordner Datenpunkte gesucht.
      * @param Dateiname (ohne Endung .json), unter dem die json-Datei im Ordner Datenpunkte zu finden ist.
@@ -145,7 +144,6 @@ public class JSONCoder
             datenpunkte.add(dp);
         }
 
-        //to do
         return datenpunkte;
         
         }
