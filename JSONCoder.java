@@ -15,21 +15,35 @@ import org.json.simple.parser.JSONParser;
  */
 public class JSONCoder
 {
+    String dateiname; // Dateiname einer JSON-DAtei (ohne Extension) im Ordner Datenpunkte
+    
     /**
      * Konstruktor für Objekte der Klasse JSONCoder
      */
     public JSONCoder()
     {
+        dateiname = null;
 
     }
 
+    /**
+     * Setzt den Dateinamen  
+     * Die json-Datei liegt im Ordner Datenpunkte. Der anzugebene Dateiname wird um die Endung json ergänzt. 
+     * @param Dateiname (ohne Endung .json), wie die entstehende json-Datei zu benennen ist.
+     * 
+     */
+    public void DatenquelleSetzen(String filename)
+    {
+        dateiname = filename;
+    }
+    
     /**
      * Methode schreibt den einzelnen übergebenen Datenpunkt in eine  eigene json-Datei. 
      * Die json-Datei liegt im Ordner Datenpunkte. Der anzugebene Dateiname wird um die Endung json ergänzt. 
      * @param Dateiname (ohne Endung .json), wie die entstehende json-Datei zu benennen ist.
      * @param Datenpunkt, der eingelesen werden soll
      */
-    public void writeDatenpunkt(String filename, Datenpunkt pkt) throws Exception {
+    public void writeDatenpunkt(Datenpunkt pkt) throws Exception {
         //json-Inhalte zusammenstellen
         JSONObject jo = new JSONObject();
         jo.put("infizierte", pkt.infizierte);
@@ -39,7 +53,7 @@ public class JSONCoder
         jo.put("jahr", pkt.jahr);
 
         // json-Datei generieren:"JSONExample.json"
-        PrintWriter pw = new PrintWriter("Datenpunkte/"+filename+".json"); 
+        PrintWriter pw = new PrintWriter("Datenpunkte/"+dateiname+".json"); 
         pw.write(jo.toJSONString()); 
 
         pw.flush(); 
@@ -52,7 +66,7 @@ public class JSONCoder
      * @param Dateiname (ohne Endung .json), wie die entstehende json-Datei zu benennen ist.
      * @param Liste der Datenpunkte, die eingelesen werden sollen
      */
-    public void write (String filename, ArrayList<Datenpunkt> dp) {
+    public void write (ArrayList<Datenpunkt> dp) {
         JSONArray ja = new JSONArray();
 
         for(int i = 0; i < dp.size(); i++) {
@@ -70,7 +84,7 @@ public class JSONCoder
 
         // json-Datei generieren:"JSONExample.json"
         try{
-            PrintWriter pw = new PrintWriter("Datenpunkte/"+filename+".json"); 
+            PrintWriter pw = new PrintWriter("Datenpunkte/"+dateiname+".json"); 
             pw.write(ausgabe.toJSONString()); 
 
             pw.flush(); 
@@ -87,11 +101,11 @@ public class JSONCoder
      * @param Dateiname (ohne Endung .json), unter dem die json-Datei im Ordner Datenpunkte zu finden ist.
      * @return Datenpunkt, der eingelesen wurde
      */
-    Datenpunkt readDatenpunkt(String filename) throws Exception  
+    Datenpunkt readDatenpunkt() throws Exception  
     { 
         // parsing file "JSONExample.json" 
         try{
-            JSONObject jo = (JSONObject) (new JSONParser().parse(new FileReader("Datenpunkte/"+filename+".json"))); 
+            JSONObject jo = (JSONObject) (new JSONParser().parse(new FileReader("Datenpunkte/"+dateiname+".json"))); 
         
 
 
@@ -121,12 +135,12 @@ public class JSONCoder
      * @return Arraylist der Datenpunkte, die eingelesen wurden
      */
 
-    ArrayList<Datenpunkt> read(String filename) {
+    ArrayList<Datenpunkt> read() {
         ArrayList<Datenpunkt> datenpunkte = new ArrayList<Datenpunkt>();
         
         try{
 
-        JSONObject jo = (JSONObject) (new JSONParser().parse(new FileReader("Datenpunkte/"+filename+".json"))); 
+        JSONObject jo = (JSONObject) (new JSONParser().parse(new FileReader("Datenpunkte/"+dateiname+".json"))); 
         //JSONArray jasonArray = (JSONArray) (new JSONParser().parse(new FileReader("Datenpunkte/"+filename+".json")));
 
         JSONArray jasonArray = (JSONArray) jo.get("datenpunkte"); 
