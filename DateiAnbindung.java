@@ -29,7 +29,7 @@ public class DateiAnbindung
      * Die Datei wird eingelesen und zeilenweise zerlegt. Jede Zeile wird in ihre Einzeldaten aufgespaltet, und dem Model zur Erstellung eines neuen Datenpunktes übergeben.
      * String dateiname: Der Name der Datei in die geschrieben wird.
      */
-    public void datenAusDateiLesen() throws IOException
+    public void read() throws IOException
     {
         //Pfad "coronaStatistikDatei.csv"
 
@@ -51,11 +51,22 @@ public class DateiAnbindung
     }
     
     /**
+     * Liest einzelne Datenpunkte aus einer CSV-Datei und erstellt daraus neue Datenpunkte im zugehörigen Model.
+     * Die Datei wird eingelesen und zeilenweise zerlegt. Jede Zeile wird in ihre Einzeldaten aufgespaltet, und dem Model zur Erstellung eines neuen Datenpunktes übergeben.
+     * String dateiname: Der Name der Datei in die geschrieben wird.
+     */
+    public void readDatenpunkt() throws IOException
+    {
+        // wip
+        System.out.println("Noch nicht implementiert.");
+    }
+    
+    /**
      * Schreibt alle verfügbaren Datenpunkte in eine CSV-Datei.
      * Die Datenpunkte werden vom Model abgerufen und in einzelne Zeilen einer CSV-Datei geschrieben.
      * String dateiname: Der Name der Datei in die geschrieben wird.
      */
-    public void datenInDateiSchreiben() throws IOException
+    public void write() throws IOException
     {
         ArrayList<Datenpunkt> datenliste = aktuellesModel.datenAuslesen();
         String dateiname = "coronaStatistikDatei.csv";
@@ -78,6 +89,17 @@ public class DateiAnbindung
     }
         outBuffer.close();
         
+    }
+    
+    /**
+     * Schreibt einzelne Datenpunkte in eine CSV-Datei.
+     * Die Datenpunkte werden vom Model abgerufen und in einzelne Zeilen einer CSV-Datei geschrieben.
+     * String dateiname: Der Name der Datei in die geschrieben wird.
+     */
+    public void writeDatenpunkt() throws IOException
+    {
+        // wip
+        System.out.println("Noch nicht implementiert.");
     }
     
 }
